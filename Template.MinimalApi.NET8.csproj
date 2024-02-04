@@ -40,13 +40,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="template\bin\Release\net8.0\Template.MinimalApi.NET8.Package.deps.json" />
-      <_ContentIncludedByDefault Remove="template\obj\project.assets.json" />
-      <_ContentIncludedByDefault Remove="template\obj\Release\net8.0\Template.MinimalApi.NET8.Package.sourcelink.json" />
-      <_ContentIncludedByDefault Remove="template\obj\Template.MinimalApi.NET8.Package.csproj.nuget.dgspec.json" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include=".template.config\template.json" />
     </ItemGroup>
 

@@ -60,6 +60,7 @@ public class EmployeeService : IEmployeeService
         try
         {
             var employees = await _employeeRepository.GetEmployeesAsQueryable()
+                .OrderBy(e=>e.CreatedAt)
                 .ProjectToType<EmployeeResponse>()
                 .ToPagedList(filter.Page, filter.PageSize);
 
