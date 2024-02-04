@@ -9,6 +9,7 @@
   "identity": "MatthewOduamafu.Template.MinimalApi.NET8",
   "name": ".NET 8.0 Minimal API Project Template",
   "shortName": "minimalapi",
+  "description": "A project template for creating a .NET 8.0 Minimal API project.",
   "tags": {
     "language": "C#",
     "type": "project"
