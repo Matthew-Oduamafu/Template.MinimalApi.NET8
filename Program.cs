@@ -1,6 +1,7 @@
 using Template.MinimalApi.NET8;
 using Template.MinimalApi.NET8.Extensions;
 using Template.MinimalApi.NET8.Extensions.EndpointsExtensions;
+using Template.MinimalApi.NET8.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +41,13 @@ var app = builder.Build();
     app.UseRouting();
     app.UseHttpsRedirection();
     
-    app.MapEmployeeEndpoints();
+    using var serviceScope = app.Services
+        .GetRequiredService<IServiceScopeFactory>()
+        .CreateScope();
+
+    var linkService = serviceScope.ServiceProvider.GetRequiredService<ILinkService>();
+    
+    app.MapEmployeeEndpoints(linkService);
 
     await app.RunAsync();
 }
