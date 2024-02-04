@@ -1,0 +1,29 @@
+{
+  "author": "Matthew Oduamafu",
+  "classifications": [
+    "Web",
+    "API",
+    "ASP.NET",
+    "Minimal API"
+  ],
+  "identity": "MatthewOduamafu.Template.MinimalApi.NET8",
+  "name": ".NET 8.0 Minimal API Project Template",
+  "shortName": "minimalapi",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Template.MinimalApi.NET8",
+  "preferNameDirectory": true,
+  "includeLaunchSettings": false,
+  "guids": [
+    "DABBCD3E-3FBB-4C65-8A89-50B484C9A7C1",
+    "23D256FC-8A88-4C0D-83D2-BC2E8AD0EF90",
+    "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC"
+  ],
+  "primaryOutputs": [
+    {
+      "path": "Template.MinimalApi.NET8.csproj"
+    }
+  ]
+}
