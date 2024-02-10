@@ -13,12 +13,14 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<AppUser> Users => Set<AppUser>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         builder.Entity<Employee>().ToTable("Employees");
+        builder.Entity<AppUser>().ToTable("Users");
     }
 }
 

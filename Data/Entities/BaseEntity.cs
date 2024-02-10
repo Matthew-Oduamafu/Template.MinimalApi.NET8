@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Template.MinimalApi.NET8.Data.Entities;
 
-public class BaseEntity
+public abstract class BaseEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [MaxLength(36)]
     public string Id { get; set; } = Guid.NewGuid().ToString("N");
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

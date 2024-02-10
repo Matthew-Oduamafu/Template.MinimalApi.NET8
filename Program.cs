@@ -1,3 +1,6 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Template.MinimalApi.NET8;
 using Template.MinimalApi.NET8.Extensions;
 using Template.MinimalApi.NET8.Extensions.EndpointsExtensions;
@@ -18,6 +21,8 @@ builder.Services.AddCors(options => options
         .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod()));
+
+builder.Services.AddJwtConfiguration(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -47,6 +52,7 @@ var app = builder.Build();
 
     var linkService = serviceScope.ServiceProvider.GetRequiredService<ILinkService>();
     
+    app.MapAuthEndpoints();
     app.MapEmployeeEndpoints(linkService);
 
     await app.RunAsync();
