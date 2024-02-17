@@ -38,9 +38,9 @@ public static class GenericApiResponseExtensions
 #pragma warning disable CS8604 // Possible null reference argument.
         => ToApiResponse<T>(default, message, StatusCodes.Status404NotFound);
 
-    public static GenericApiResponse<T> ToFailedDependenciesApiResponse<T>(this T? data, string message = "Failed Dependencies")
+    public static GenericApiResponse<T> ToFailedDependenciesApiResponse<T>(this T? data, string message = "Failed Dependencies", IEnumerable<ErrorResponse>? errors = null)
 #pragma warning disable CS8604 // Possible null reference argument.
-        => ToApiResponse<T>(default, message, StatusCodes.Status424FailedDependency);
+        => ToApiResponse<T>(default, message, StatusCodes.Status424FailedDependency, errors);
 
     public static GenericApiResponse<T> ToBadRequestApiResponse<T>(this T? data,
         string message = "Request error. Please verify your data and resend")

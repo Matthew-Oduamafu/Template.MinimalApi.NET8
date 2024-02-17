@@ -1,6 +1,7 @@
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Template.MinimalApi.NET8;
 using Template.MinimalApi.NET8.Extensions;
 using Template.MinimalApi.NET8.Extensions.EndpointsExtensions;
@@ -28,6 +29,11 @@ builder.Services.AddJwtConfiguration(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerDocumentation();
+
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddFluentValidationRulesToSwagger();
 
 var app = builder.Build();
 

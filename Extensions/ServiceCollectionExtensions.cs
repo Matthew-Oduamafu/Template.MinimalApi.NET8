@@ -2,11 +2,13 @@
 using System.Text;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Template.MinimalApi.NET8.Data;
+using Template.MinimalApi.NET8.Data.Entities;
 using Template.MinimalApi.NET8.Options;
 using Template.MinimalApi.NET8.Repositories.Interfaces;
 using Template.MinimalApi.NET8.Repositories.Providers;
@@ -58,6 +60,13 @@ public static class ServiceCollectionExtensions
                 builder.CommandTimeout(dbConfig.CommandTimeout);
             });
         });
+        
+        services.AddIdentityCore<AppUser>()
+            .AddRoles<IdentityRole>()
+            .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("Template.MinimalApi.NET8")
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
+        
         return services;
     }
 

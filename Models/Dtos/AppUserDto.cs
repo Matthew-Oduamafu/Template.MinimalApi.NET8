@@ -25,6 +25,8 @@ public class AppUserDto
     [MaxLength(50)] public string FirstName { get; set; }
 
     [MaxLength(50)] public string LastName { get; set; }
+    [MaxLength(20)]
+    public string PhoneNumber { get; set; }
 }
 
 public class LoginUserDto
@@ -37,4 +39,12 @@ public class LoginUserDto
 public class LoginOrRegisterResponseDto
 {
     public string Token { get; set; }
+    public string RefreshToken { get; set; }
+}
+
+
+public class RefreshTokenResponseDto
+{
+    public string Token { get; set; }
+    public string RefreshToken { get; set; }
 }
