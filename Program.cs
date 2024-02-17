@@ -35,6 +35,12 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddFluentValidationRulesToSwagger();
 
+/***
+ * Authentication and Authorization
+ */
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 {
